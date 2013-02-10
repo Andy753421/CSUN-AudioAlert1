@@ -2,15 +2,17 @@ package info.ss12.audioalertsystem;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.Switch;
+import android.os.Vibrator;
 
 public class MainActivity extends Activity implements OnSignalsDetectedListener
 {
 	private final String TAG = "Main Activity";
 	
-	
+	private Vibrator vibrator;
 	private Switch micSwitch;
 	private ButtonController buttonControl;
 	
@@ -23,7 +25,7 @@ public class MainActivity extends Activity implements OnSignalsDetectedListener
 		micSwitch = (Switch )findViewById(R.id.mic_switch);
 		micSwitch.setOnClickListener(buttonControl);
 		micSwitch.setOnTouchListener(buttonControl);
-
+		vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
 	}
 
 	@Override
@@ -37,7 +39,8 @@ public class MainActivity extends Activity implements OnSignalsDetectedListener
 	@Override
 	public void onFireAlarmDetected()
 	{
-		Log.d(TAG, "FIRE ALARM DETECTED");		
+		Log.d(TAG, "FIRE ALARM DETECTED");
+		vibrator.vibrate(5000);
 	}
 
 }
