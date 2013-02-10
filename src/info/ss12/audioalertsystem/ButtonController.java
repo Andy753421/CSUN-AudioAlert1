@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.ImageView;
-import android.widget.Switch;
+import android.widget.ToggleButton;
 
 public class ButtonController implements OnClickListener, OnTouchListener
 {
@@ -46,9 +46,9 @@ public class ButtonController implements OnClickListener, OnTouchListener
 //		if (eventId == MotionEvent.ACTION_MOVE)
 //		{
 //			//For UI purposes
-//			if(v instanceof Switch)
+//			if(v instanceof ToggleButton)
 //			{
-//				Switch temp = (Switch) v;
+//				ToggleButton temp = (ToggleButton) v;
 //				if(temp.isChecked())
 //					temp.setChecked(false);
 //				else
@@ -68,7 +68,7 @@ public class ButtonController implements OnClickListener, OnTouchListener
 		if(id == R.id.mic_switch)
 		{
 			Log.d(TAG, "press");
-			Switch micS = (Switch) v;
+			ToggleButton micS = (ToggleButton) v;
 			ImageView micImage = (ImageView) mainActivity.findViewById(R.id.mic_image);
 			if (micS.isChecked())
 			{

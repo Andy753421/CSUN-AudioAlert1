@@ -10,7 +10,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.Button;
-import android.widget.Switch;
+import android.widget.ToggleButton;
 import android.content.Context;
 
 public class MainActivity extends Activity
@@ -19,7 +19,7 @@ public class MainActivity extends Activity
 	private boolean alarmActivated = false;
 
 	
-	private Switch micSwitch;
+	private ToggleButton micSwitch;
 	private Button testAlert;
 	
 	private ButtonController buttonControl;
@@ -35,7 +35,7 @@ public class MainActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		buttonControl = new ButtonController(this);
-		micSwitch = (Switch )findViewById(R.id.mic_switch);
+		micSwitch = (ToggleButton )findViewById(R.id.mic_switch);
 		micSwitch.setOnClickListener(buttonControl);
 		micSwitch.setOnTouchListener(buttonControl);
 
